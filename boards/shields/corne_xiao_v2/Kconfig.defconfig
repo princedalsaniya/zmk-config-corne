@@ -1,0 +1,24 @@
+if SHIELD_CORNE_XIAO_V2_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Corne"
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 1
+
+config ZMK_BLE_SPLIT_CENTRAL_POSITION_QUEUE_SIZE
+    default 20
+
+config LVGL_VDB_SIZE
+    default 64
+
+config LVGL_DPI
+    default 148
+
+config LVGL_COLOR_DEPTH
+    default 1
+
+config LVGL_COLOR_DEPTH_CHOICE_1
+    default y
+
+endif
