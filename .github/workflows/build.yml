@@ -2,24 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/user-build-matrices.yml@main
-    with:
-      build-matrix: ${{ toJSON(fromJSON(needs.matrix.outputs.matrix)) }}
-    needs: matrix
-
-  matrix:
-    runs-on: ubuntu-latest
-    name: Fetch Build Keyboard Metadata
-    outputs:
-      matrix: ${{ steps.matrix.outputs.matrix }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install yaml2json
-        run: pip install remarshal
-
-      - name: Fetch Build Matrix
-        id: matrix
-        run: |
-          echo "matrix=$(yaml2json build.yaml | jq -c .)" >> $GITHUB_OUTPUT
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
